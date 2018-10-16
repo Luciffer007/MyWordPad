@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MyWordPad.Resources"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <v:Double x:Key="infoWindowHeight">185</v:Double>
+    <v:Double x:Key="infoWindowWidth">365</v:Double>
+
+    <v:String x:Key="fileHeader">File</v:String>
+        <v:String x:Key="openHeader">Open</v:String>
+        <v:String x:Key="saveHeader">Save</v:String>
+        <v:String x:Key="exitHeader">Exit</v:String>
+
+    <v:String x:Key="editHeader">Edit</v:String>
+        <v:String x:Key="copyHeader">Copy</v:String>
+        <v:String x:Key="pasteHeader">Paste</v:String>
+        <v:String x:Key="cutHeader">Cut</v:String>
+
+    <v:String x:Key="viewHeader">View</v:String>
+        <v:String x:Key="languageHeader">Language</v:String>
+            <v:String x:Key="englishHeader">English (USA)</v:String>
+            <v:String x:Key="russianHeader">Russian</v:String>
+
+    <v:String x:Key="helpHeader">Help</v:String>
+        <v:String x:Key="aboutHeader">About MyWordPad...</v:String>
+
+    <v:String x:Key="copyrightLabel">Copyright (C) 2018 Gerasimov Artyom</v:String>
+    <v:Double x:Key="licenceTextHeight">83</v:Double>
+    <v:String x:Key="descriptionText">This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</v:String>
+
+    <v:String x:Key="spellingHintsLabel">Spelling Hints</v:String>
+    <v:String x:Key="spellingHintsExpandr">Try these</v:String>
+
+    <v:String x:Key="defaultStatusText">Ready</v:String>
+    <v:String x:Key="openStatusText">Open .txt file</v:String>
+    <v:String x:Key="saveStatusText">Save in .txt file</v:String>
+    <v:String x:Key="exitStatusText">Exit the MyWordPad</v:String>
+    <v:String x:Key="copyStatusText">Copy selected text</v:String>
+    <v:String x:Key="pasteStatusText">Paste from clipboard</v:String>
+    <v:String x:Key="cutStatusText">Cut selected text</v:String>
+    <v:String x:Key="languageStatusText">Select interface language</v:String>
+    <v:String x:Key="aboutStatusText">Display information about MyWordPad</v:String>
+
+    <v:String x:Key="typeDocument">Text Files (*.txt)</v:String>
+
+</ResourceDictionary>

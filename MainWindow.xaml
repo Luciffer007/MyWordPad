@@ -1,0 +1,230 @@
+﻿<Window x:Class="MyWordPad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyWordPad"
+        mc:Ignorable="d"
+        Title="MyWordPad" Height="450" Width="800"
+        Icon="Images/MainIcon.png">
+
+    <Window.CommandBindings>
+
+        <CommandBinding Command="ApplicationCommands.Open"
+                        CanExecute="CanOpenExecute"
+                        Executed="OpenExecute"/>
+
+        <CommandBinding Command="ApplicationCommands.Save"
+                        CanExecute="CanSaveExecute"
+                        Executed="SaveExecute"/>
+
+    </Window.CommandBindings>
+
+    <DockPanel>
+
+        <!-- Application menu layout --> 
+        <Menu DockPanel.Dock="Top" Background="White" BorderBrush="Black">
+
+            <MenuItem Header="{DynamicResource fileHeader}">
+
+                <MenuItem Header="{DynamicResource openHeader}" Command="ApplicationCommands.Open" MouseEnter="OpenStatusText" MouseLeave="DefaultStatusText">
+                    <MenuItem.Icon>
+                        <Image Source="Images/OpenIcon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="{DynamicResource saveHeader}" Command="ApplicationCommands.Save" MouseEnter="SaveStatusText" MouseLeave="DefaultStatusText">
+                    <MenuItem.Icon>
+                        <Image Source="Images/SaveIcon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <Separator/>
+
+                <MenuItem Header="{DynamicResource exitHeader}" Click="AppExit" MouseEnter="ExitStatusText" MouseLeave="DefaultStatusText">
+                    <MenuItem.Icon>
+                        <Image Source="Images/ExitIcon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </MenuItem>
+
+            <MenuItem Header="{DynamicResource editHeader}">
+
+                <MenuItem Header="{DynamicResource copyHeader}" Command="ApplicationCommands.Copy" MouseEnter="CopyStatusText" MouseLeave="DefaultStatusText">
+                    <MenuItem.Icon>
+                        <Image Source="Images/CopyIcon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="{DynamicResource pasteHeader}"  Command="ApplicationCommands.Paste" MouseEnter="PasteStatusText" MouseLeave="DefaultStatusText">
+                    <MenuItem.Icon>
+                        <Image Source="Images/PasteIcon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem Header="{DynamicResource cutHeader}" Command="ApplicationCommands.Cut" MouseEnter="CutStatusText" MouseLeave="DefaultStatusText">
+                    <MenuItem.Icon>
+                        <Image Source="Images/CutIcon.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+            </MenuItem>
+
+            <MenuItem Header="{DynamicResource viewHeader}">
+                <MenuItem Header="{DynamicResource languageHeader}" MouseLeave="DefaultStatusText" MouseEnter="LanguageStatusText">
+
+                    <MenuItem Header="{DynamicResource englishHeader}" Click="EnglishLanguage">
+                        <MenuItem.Icon>
+                            <Image x:Name="englishCheck" Source="Images/CheckIcon.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{DynamicResource russianHeader}" Click="RussianLanguage">
+                        <MenuItem.Icon>
+                            <Image x:Name="russianCheck" Source="Images/CheckIcon.png" Opacity="0"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="{DynamicResource helpHeader}">
+                <MenuItem Header="{DynamicResource aboutHeader}" Click="DisplayInformationWindow" MouseLeave="DefaultStatusText" MouseEnter="AboutStatusText"/>
+            </MenuItem>
+
+        </Menu>
+
+        <!-- Application toolbar layout -->
+        <ToolBar DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+            <Button Command="ApplicationCommands.Open" MouseEnter="OpenStatusText" MouseLeave="DefaultStatusText">
+                
+                <Button.Content>
+                    <Image Source="Images/OpenIcon.jpg" Height="15"/>
+                </Button.Content>
+                
+                <Button.ToolTip>
+                    <ToolTip Content="{DynamicResource openStatusText}"/>
+                </Button.ToolTip>
+                
+            </Button>
+            
+            <Button Command="ApplicationCommands.Save" MouseEnter="SaveStatusText" MouseLeave="DefaultStatusText">
+                
+                <Button.Content>
+                    <Image Source="Images/SaveIcon.png" Height="15"/>
+                </Button.Content>
+
+                <Button.ToolTip>
+                    <ToolTip Content="{DynamicResource saveStatusText}"/>
+                </Button.ToolTip>
+
+            </Button>
+
+            <Separator/>
+
+            <Button Command="ApplicationCommands.Copy" MouseEnter="CopyStatusText" MouseLeave="DefaultStatusText">
+                
+                <Button.Content>
+                    <Image x:Name="copyImage" Source="Images/CopyIcon.png" Height="15"/>
+                </Button.Content>
+
+                <Button.ToolTip>
+                    <ToolTip Content="{DynamicResource copyStatusText}"/>
+                </Button.ToolTip>
+
+            </Button>
+
+            <Button Command="ApplicationCommands.Paste" MouseEnter="PasteStatusText" MouseLeave="DefaultStatusText">
+                
+                <Button.Content>
+                    <Image x:Name="pasteImage" Source="Images/PasteIcon.png" Height="15"/>
+                </Button.Content>
+
+                <Button.ToolTip>
+                    <ToolTip Content="{DynamicResource pasteStatusText}"/>
+                </Button.ToolTip>
+
+            </Button>
+
+            <Button Command="ApplicationCommands.Cut" MouseEnter="CutStatusText" MouseLeave="DefaultStatusText" >
+                
+                <Button.Content>
+                    <Image x:Name="cutImage" Source="Images/CutIcon.png" Height="15"/>
+                </Button.Content>
+
+                <Button.ToolTip>
+                    <ToolTip Content="{DynamicResource cutStatusText}"/>
+                </Button.ToolTip>
+
+            </Button>
+
+            <Separator/>
+
+            <!-- Font size selection panel -->
+            <Border Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1">
+                <ComboBox x:Name="fontSizeComboBox" Width="42" SelectionChanged="SelectFontSize" VerticalAlignment="Top">
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="16"/>
+                    <ComboBoxItem Content="18"/>
+                    <ComboBoxItem Content="20"/>
+                    <ComboBoxItem Content="22"/>
+                    <ComboBoxItem Content="24"/>
+                    <ComboBoxItem Content="26"/>
+                    <ComboBoxItem Content="28"/>
+                    <ComboBoxItem Content="36"/>
+                    <ComboBoxItem Content="48"/>
+                    <ComboBoxItem Content="72"/>
+                </ComboBox>
+            </Border>
+
+        </ToolBar>
+
+        <!-- Application status bar -->
+        <StatusBar DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="White">
+            <StatusBarItem Background="White">
+                <TextBlock x:Name="statusText" Text="{DynamicResource defaultStatusText}"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180" MinWidth="180" MaxWidth="500"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Spell Check Assistant -->
+            <StackPanel Grid.Column="0">
+
+                <Label x:Name="label" Content="{DynamicResource spellingHintsLabel}"/>
+                <Expander x:Name="expandr" Header="{DynamicResource spellingHintsExpandr}" IsExpanded="True">
+                    <Label x:Name="variantSpellingHints"/>
+                </Expander>
+
+            </StackPanel>
+
+            <!-- Entry field of a user text -->
+            <TextBox x:Name="textBox" 
+                     Grid.Column="1" 
+                     HorizontalScrollBarVisibility="Auto" 
+                     VerticalScrollBarVisibility="Auto" 
+                     Background="#FFF1EFEF"
+                     BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                     SpellCheck.IsEnabled="True" 
+                     Language="en-US"
+                     AcceptsReturn="True" SelectionChanged="CheckSpellingHints" TextChanged="TextChanged"/>
+
+            <GridSplitter Grid.Column="0" Width="3" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+
+        </Grid>
+
+    </DockPanel>
+
+</Window>

@@ -1,0 +1,46 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MyWordPad.Resources"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+
+    <v:Double x:Key="infoWindowHeight">220</v:Double>
+    <v:Double x:Key="infoWindowWidth">370</v:Double>
+
+    <v:String x:Key="fileHeader">Файл</v:String>
+    <v:String x:Key="openHeader">Открыть</v:String>
+    <v:String x:Key="saveHeader">Сохранить</v:String>
+    <v:String x:Key="exitHeader">Выйти</v:String>
+
+    <v:String x:Key="editHeader">Правка</v:String>
+    <v:String x:Key="copyHeader">Копировать</v:String>
+    <v:String x:Key="pasteHeader">Вставить</v:String>
+    <v:String x:Key="cutHeader">Вырезать</v:String>
+
+    <v:String x:Key="viewHeader">Вид</v:String>
+    <v:String x:Key="languageHeader">Язык</v:String>
+    <v:String x:Key="englishHeader">Английский (США)</v:String>
+    <v:String x:Key="russianHeader">Русский</v:String>
+
+    <v:String x:Key="helpHeader">Помощь</v:String>
+    <v:String x:Key="aboutHeader">О MyWordPad...</v:String>
+
+    <v:String x:Key="copyrightLabel">Copyright (C) 2018 Герасимов Артём</v:String>
+    <v:Double x:Key="licenceTextHeight">115</v:Double>
+    <v:String x:Key="descriptionText">Эта программа является свободным программным обеспечением. Вы в праве распространять её и/ или модифицировать, соблюдая условия Открытого лицензионного соглашения GNU(GPL), опубликованного Free Software Foundation; либо версии 2 Соглашения, либо(по вашему выбору) любой более поздней версии.</v:String>
+
+    <v:String x:Key="spellingHintsLabel">Советы по правописанию</v:String>
+    <v:String x:Key="spellingHintsExpandr">Попробуйте это</v:String>
+
+    <v:String x:Key="defaultStatusText">Готово</v:String>
+    <v:String x:Key="openStatusText">Открыть файл .txt</v:String>
+    <v:String x:Key="saveStatusText">Сохранить в файл .txt</v:String>
+    <v:String x:Key="exitStatusText">Выйти из MyWordPad</v:String>
+    <v:String x:Key="copyStatusText">Копировать выделенный текст</v:String>
+    <v:String x:Key="pasteStatusText">Вставить из буффера обмена</v:String>
+    <v:String x:Key="cutStatusText">Вырезать выделенный текст</v:String>
+    <v:String x:Key="languageStatusText">Выбор языка интерфеса</v:String>
+    <v:String x:Key="aboutStatusText">Показать информацию о MyWordPad</v:String>
+
+    <v:String x:Key="typeDocument">Текстовые документы (*.txt)</v:String>
+
+</ResourceDictionary>
